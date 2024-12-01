@@ -9,7 +9,7 @@ const calculateSimilarityScore = async () => {
   const [list1, list2] = await prepareInput();
 
   // count number of instances in list2;
-  const l2Occurrances = {};
+  const l2Occurrances: Record<string, number> = {};
   list2.forEach((val) => {
     l2Occurrances[val] = (l2Occurrances[val] ?? 0) + 1;
   });

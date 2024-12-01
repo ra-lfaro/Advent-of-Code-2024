@@ -6,8 +6,8 @@ const prepareInput = async (): Promise<[number[], number[]]> => {
   const input = await parseInput(__dirname + '/input.txt');
 
   //parse each row into two lists
-  const list1 = [];
-  const list2 = [];
+  const list1: number[] = [];
+  const list2: number[] = [];
 
   input.forEach((row) => {
     const [l1, l2] = row.split(/ +/);
