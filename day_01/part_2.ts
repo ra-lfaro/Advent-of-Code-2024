@@ -12,15 +12,13 @@ const calculateSimilarityScore = async () => {
   const l2Occurrances = {};
   list2.forEach((val) => {
     l2Occurrances[val] = (l2Occurrances[val] ?? 0) + 1;
-  })
+  });
 
   // calculate similarity store 
   // sum of ( list1[i] * l2Occurrances[list1[i]] )
-  let similarityScore = 0;
-
-  for (let val of list1) {
-    similarityScore += (l2Occurrances[val] ?? 0) * val
-  }
+  const similarityScore = list1.reduce((ongoing, val) => {
+    return ongoing + ((l2Occurrances[val] ?? 0) * val);
+  }, 0);
 
   console.log('Answer:', similarityScore)
   return similarityScore;
