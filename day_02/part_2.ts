@@ -1,6 +1,6 @@
 /**
  * https://adventofcode.com/2024/day/2
- * Answer: 
+ * Answer: 689
  */
 
 import prepareInput from "./prepareInput";
@@ -35,7 +35,7 @@ const isReportSafe = (report: string[], failedPreviously = false): boolean => {
 
     // determine if it will be ascending or descending
     if (!i) {
-      if (curr < next)
+      if (curr < +report[report.length - 1])
         isIncreasing = true;
     }
 
@@ -58,13 +58,6 @@ const isReportSafe = (report: string[], failedPreviously = false): boolean => {
     }
 
     if (tryDampener) {
-      // this is for an edge case where the prev is a is valid to the curr but its actually the odd man out to everything else
-      if (i > 0) {
-        const copyRemovingPrev = [...report.slice(0, i - 1), ...report.slice(i)]
-        if (isReportSafe(copyRemovingPrev, true))
-          return true;
-      }
-
       const copyRemovingCurr = [...report.slice(0, i), ...report.slice(i + 1)]
       const copyRemovingNext = [...report.slice(0, i + 1), ...report.slice(i + 2)]
       return isReportSafe(copyRemovingCurr, true) || isReportSafe(copyRemovingNext, true);
