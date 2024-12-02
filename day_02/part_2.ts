@@ -26,13 +26,12 @@ const calculateSafeReports = async () => {
 const isReportSafe = (report: string[], failedPreviously = false): boolean => {
 
   let isIncreasing = false;
+  let tryDampener = false;
 
   for (let i = 0; i < report.length - 1; i++) {
 
     const curr = +report[i];
     const next = +report[i + 1];
-
-    let tryDampener = false;
 
     // determine if it will be ascending or descending
     if (!i) {
