@@ -1,15 +1,16 @@
 /**
  * https://adventofcode.com/2024/day/3
- * Answer: 
+ * Answer: 89798695
  */
 
 import prepareInput from "./prepareInput";
 
 /*
-* Matches three kids of groups or leaves the group undefined
+* Matches three kinds of named groups or leaves the group undefined
 * do
 * dont
 * mult > which will have a,b split out
+* naming them makes it easy to traverse later
 */
 const UNCORRUPTED_REGEX = /(?<dont>don\'t())|(?<do>do())|(?<mult>mul\((?<a>\d{1,3}),(?<b>\d{1,3})\))/g
 
