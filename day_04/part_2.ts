@@ -16,7 +16,7 @@ const search = async () => {
 
   // we can start everywhere theres an M to cut down some iterations
   const potentialStarts = gatherPotentialStarts(wordSearch);
-  
+
   const matchedACoords: Record<string, number> = {};
 
   const dfs = (i: number, r: number, c: number, path: Coord[], direction?: Direction) => {
@@ -33,11 +33,12 @@ const search = async () => {
       return;
     }
 
+    // we know the current spot is still valid so record it to path
     path.push([r, c])
 
     // we've matched all the letters so lets record where the A was and how many times it was used
-    // matched paths will always be length 3 so the A will always be index 1
     if (i === SEEKED_WORD.length - 1) {
+      // matched paths will always be length 3 so the A will always be index 1
       const positionOfA = path[1];
       const [aR, aC] = positionOfA;
       matchedACoords[`${aR}-${aC}`] = (matchedACoords[`${aR}-${aC}`] ?? 0) + 1;
@@ -57,6 +58,7 @@ const search = async () => {
 
   }
 
+  // check all potential matches
   for (let [r, c] of potentialStarts) {
     dfs(0, r, c, []);
   }
