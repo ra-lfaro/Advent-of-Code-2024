@@ -57,7 +57,7 @@ const createRulesLookup = (rules: string[][]) => {
   return rulesLookup;
 }
 
-const isPageValidInUpdate = (pageIndex: number, updates: string[], pageRules: any) => {
+const isPageValidInUpdate = (pageIndex: number, updates: string[], pageRules: Record<string, any>) => {
 
   for (let i = 0; i < pageIndex; i++) {
     if (pageRules.before.has(updates[i]))
