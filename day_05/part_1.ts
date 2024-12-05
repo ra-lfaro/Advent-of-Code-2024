@@ -30,6 +30,14 @@ const part1 = async () => {
   return validMiddleSum;
 };
 
+// ever entry will have all of the rules that it needs to come before AND after
+/* 
+  { 
+    '14': {
+      before: Set { '13', '12' }, // 14 needs to come before 13 and 12
+      after: Set { '15', '16' } // 14 needs to come after 15 and 16
+    },
+*/
 const createRulesLookup = (rules: string[][]) => {
   const rulesLookup: Record<string, any> = {}
 
@@ -57,6 +65,12 @@ const createRulesLookup = (rules: string[][]) => {
   return rulesLookup;
 }
 
+/*
+  we pass in the rules of the page we are validating (pageIndex)
+  we check every entry before the current page and make sure that it is valid
+  by making sure nothing that is supposed to come after it, is before it
+  similarly we make sure nothing that is supposed to come before it, is after it
+*/
 const isPageValidInUpdate = (pageIndex: number, updates: string[], pageRules: Record<string, any>) => {
 
   for (let i = 0; i < pageIndex; i++) {

@@ -18,6 +18,8 @@ const part1 = async () => {
       // if its not valid, fix it and then add middle to sum
       if (!isPageValidInUpdate(i, update, rulesLookup[update[i]])) {
 
+        // we build a new valid array rather then reordering the current one
+        // having a valid updat earray each interaction
         let fixedUpdate: string[] = [];
         for (let i = 0; i < update.length; i++) {
           insertPageIntoUpdates(update[i], rulesLookup[update[i]], fixedUpdate);
@@ -33,6 +35,15 @@ const part1 = async () => {
   return fixedValidMiddleSums;
 };
 
+
+// ever entry will have all of the rules that it needs to come before AND after
+/* 
+  { 
+    '14': {
+      before: Set { '13', '12' }, // 14 needs to come before 13 and 12
+      after: Set { '15', '16' } // 14 needs to come after 15 and 16
+    },
+*/
 const createRulesLookup = (rules: string[][]) => {
   const rulesLookup: Record<string, any> = {}
 
@@ -60,8 +71,13 @@ const createRulesLookup = (rules: string[][]) => {
   return rulesLookup;
 }
 
+/*
+  we pass in the rules of the page we are validating (pageIndex)
+  we check every entry before the current page and make sure that it is valid
+  by making sure nothing that is supposed to come after it, is before it
+  similarly we make sure nothing that is supposed to come before it, is after it
+*/
 const isPageValidInUpdate = (pageIndex: number, updates: string[], pageRules: Record<string, any>) => {
-
   for (let i = 0; i < pageIndex; i++) {
     if (pageRules.before.has(updates[i]))
       return false;
@@ -82,6 +98,8 @@ const insertPageIntoUpdates = (page: string, pageRules: any, updates: string[]) 
     return;
   }
 
+  // we pretend to insert the page at every index and check if it would be valid
+  // if it is then we insert it at that index
   for (let i = 0; i <= updates.length; i++) {
     if (isPageValidInUpdate(i - 1, updates, pageRules)) {
       updates.splice(i, 0, page);
