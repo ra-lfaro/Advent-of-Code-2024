@@ -16,6 +16,7 @@ const part2 = async () => {
   for (let freq of Object.keys(frequencies)) {
 
     // frequencies[freq] is sorted by row, col asc. i.e [ [ 1, 8 ], [ 2, 5 ], [ 2, 7 ], [ 4, 4 ] ],
+    // create antinodes for the the current against every other entry in the list of the same frequency
     for (let i = 0; i < frequencies[freq].length - 1; i++) {
       for (let j = i + 1; j < frequencies[freq].length; j++) {
 
