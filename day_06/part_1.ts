@@ -8,9 +8,9 @@ import prepareInput from "./prepareInput";
 type Position = [r: number, c: number];
 type Direction = 'up' | 'down' | 'left' | 'right';
 
-const part1 = async () => {
+const part1 = () => {
 
-  const map = await prepareInput();
+  const map = prepareInput();
   let currPosition = findStart(map);
   let currDirection: Direction = 'up';
   let escaped = false;

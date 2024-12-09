@@ -5,8 +5,8 @@
 
 import prepareInput from "./prepareInput";
 
-const calculateDistance = async () => {
-  const [list1, list2] = await prepareInput();
+const calculateDistance = () => {
+  const [list1, list2] = prepareInput();
 
   // we need to sort the lists to ensure we compare the correct values against each other
   // since the smallest x of l1 needs to comepare to smallest x of l2

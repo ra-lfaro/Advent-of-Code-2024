@@ -9,10 +9,10 @@ const SEEKED_WORD = 'XMAS';
 type Coord = [r: number, c: number];
 type Direction = 'topLeft' | 'top' | 'topRight' | 'left' | 'right' | 'bottomLeft' | 'bottom' | 'bottomRight'
 
-const search = async () => {
+const search = () => {
 
   // get the matrix to search
-  const wordSearch = await prepareInput();
+  const wordSearch = prepareInput();
 
   // we can start everywhere theres an X to cut down some iterations
   const potentialStarts = gatherPotentialStarts(wordSearch);

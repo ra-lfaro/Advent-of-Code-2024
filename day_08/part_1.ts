@@ -7,9 +7,9 @@ type Coord = [row: number, col: number];
 
 import prepareInput from "./prepareInput";
 
-const part1 = async () => {
+const part1 = () => {
 
-  const matrix = await prepareInput();
+  const matrix = prepareInput();
   const frequencies = collectFrequencies(matrix);
   const uniqueAntis = new Set<string>();
 

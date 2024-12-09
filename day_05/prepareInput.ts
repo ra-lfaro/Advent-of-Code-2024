@@ -1,8 +1,8 @@
 import { parseInput } from "../utils/parse";
 
-const prepareInput = async () => {
-  // const input = await parseInput(__dirname + '/sample.txt');
-  const input = await parseInput(__dirname + '/input.txt');
+const prepareInput = () => {
+  // const input = parseInput(__dirname + '/sample.txt');
+  const input = parseInput(__dirname + '/input.txt');
 
   const rules: [string, string][] = []
   const updates: string[][] = [];

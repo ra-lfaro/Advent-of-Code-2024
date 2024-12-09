@@ -23,8 +23,8 @@ type MATCH_GROUP = {
   b: string;
 }
 
-const part1 = async () => {
-  const data = await prepareInput();
+const part1 = () => {
+  const data = prepareInput();
 
   let sumOfProducts = 0;
 

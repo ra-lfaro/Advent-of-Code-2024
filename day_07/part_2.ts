@@ -5,9 +5,9 @@
 
 import prepareInput, { type Equation } from "./prepareInput";
 
-const part1 = async () => {
+const part1 = () => {
 
-  const calibrations: Equation[] = await prepareInput();
+  const calibrations: Equation[] = prepareInput();
 
   // we try the different operations at each step and see if any path gets us 
   // to the final total by the time we are at the last variable input

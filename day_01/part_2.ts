@@ -5,8 +5,8 @@
 
 import prepareInput from "./prepareInput";
 
-const calculateSimilarityScore = async () => {
-  const [list1, list2] = await prepareInput();
+const calculateSimilarityScore = () => {
+  const [list1, list2] = prepareInput();
 
   // count number of instances in list2;
   const l2Occurrances: Record<string, number> = {};

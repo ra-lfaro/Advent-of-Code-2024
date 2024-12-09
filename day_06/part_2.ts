@@ -9,8 +9,8 @@ type Position = [r: number, c: number];
 type Direction = 'up' | 'down' | 'left' | 'right';
 
 
-const part2 = async () => {
-  const map = await prepareInput();
+const part2 = () => {
+  const map = prepareInput();
   const start = findStart(map);
 
   // first lets get original path

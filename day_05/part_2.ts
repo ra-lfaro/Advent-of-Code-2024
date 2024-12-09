@@ -5,9 +5,9 @@
 
 import prepareInput from "./prepareInput";
 
-const part1 = async () => {
+const part1 = () => {
 
-  const [rules, updates] = await prepareInput();
+  const [rules, updates] = prepareInput();
 
   const rulesLookup: Record<string, any> = createRulesLookup(rules)
 

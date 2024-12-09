@@ -1,9 +1,9 @@
 import { parseInput } from "../utils/parse";
 
-const prepareInput = async (): Promise<[number[], number[]]> => {
+const prepareInput = (): [number[], number[]] => {
   // gather input data
-  // const input = await parseInput(__dirname + '/sample.txt');
-  const input = await parseInput(__dirname + '/input.txt');
+  // const input = parseInput(__dirname + '/sample.txt');
+  const input = parseInput(__dirname + '/input.txt');
 
   //parse each row into two lists
   const list1: number[] = [];

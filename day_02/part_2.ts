@@ -7,9 +7,9 @@ import prepareInput from "./prepareInput";
 
 const MAX_SAFE_DIFF = 3;
 
-const calculateSafeReports = async () => {
+const calculateSafeReports = () => {
 
-  const reports = await prepareInput();
+  const reports = prepareInput();
 
   let safeReports = 0;
 
