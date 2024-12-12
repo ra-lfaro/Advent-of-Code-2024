@@ -12,21 +12,21 @@ const part2 = () => {
 
   const data = prepareInput();
 
-  const seenByTwentyFives: Record<number, number[]> = {};
+  const seenByInterval: Record<number, number[]> = {};
 
   let stones = 0;
   const blink = (stone: number, i: number) => {
 
-    if (!seenByTwentyFives[stone]) {
-      seenByTwentyFives[stone] = blinkIntervalTimes(stone, 0)
+    if (!seenByInterval[stone]) {
+      seenByInterval[stone] = blinkIntervalTimes(stone, 0)
     }
 
     if (i === (NUMBER_OF_BLINKS - BLINK_INTERVALS)) {
-      stones += seenByTwentyFives[stone].length
+      stones += seenByInterval[stone].length
       return;
     }
 
-    for (let s of seenByTwentyFives[stone]) {
+    for (let s of seenByInterval[stone]) {
       blink(s, i + BLINK_INTERVALS)
     }
   };
