@@ -1,6 +1,6 @@
 import { parseInput } from "../utils/parse";
 
-const prepareInput = (useSample = true) => {
+const prepareInput = (useSample?: boolean) => {
   let input;
   if (useSample)
     input = parseInput(__dirname + '/sample.txt');
